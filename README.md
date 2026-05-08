@@ -6,7 +6,7 @@
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 smartshop_plus/
@@ -46,7 +46,7 @@ smartshop_plus/
 
 ---
 
-## ⚡ Setup Instructions
+## Setup Instructions
 
 ### Step 1 — Prerequisites
 
@@ -106,7 +106,7 @@ Password: password123
 
 ---
 
-## 📦 Dependencies
+## Dependencies
 
 ```yaml
 dependencies:
@@ -124,7 +124,7 @@ flutter pub get
 
 ---
 
-## 🔥 Firebase Setup (Optional)
+## Firebase Setup (Optional)
 
 The app is architected to be Firebase-ready. To enable Firebase:
 
@@ -177,7 +177,7 @@ return snapshot.docs
 
 ---
 
-## 🎓 Flutter Concepts Coverage
+## Flutter Concepts Coverage
 
 | Concept | File | Description |
 |---------|------|-------------|
@@ -209,7 +209,7 @@ return snapshot.docs
 
 ---
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -238,7 +238,7 @@ return snapshot.docs
 
 ---
 
-## 🖼️ Screen Flow
+##  Screen Flow
 
 ```
 Splash Screen (2.5s)
@@ -254,34 +254,14 @@ Splash Screen (2.5s)
 
 ---
 
-## 💡 Key Implementation Notes
+## Contributors
 
-### Why StreamBuilder in CartScreen?
-`CartProvider.notifyListeners()` updates `Consumer` widgets.  
-`CartStream.updateCart()` pushes to a broadcast stream.  
-`StreamBuilder` in `CartScreen` listens to this stream for **real-time** updates — demonstrating that multiple mechanisms can drive UI simultaneously.
-
-### Why broadcast stream?
-A regular `StreamController` allows only **one** listener. Using `.broadcast()` lets both the `AppBar` badge (via `Consumer`) and the `CartScreen` (via `StreamBuilder`) receive updates at the same time.
-
-### Firebase-Ready Pattern
-All model classes have `fromMap()` / `toMap()` factory methods that mirror Firestore document format. Replacing the dummy data source in `ProductService` requires only changing the method body — the rest of the app remains unchanged.
+- **Misbah Shaheen** 
+- **Hareem Fatima**
+  GitHub: [HareemFatima5](https://github.com/HareemFatima5)
 
 ---
 
-## 🧪 Viva Discussion Points
+## License
 
-1. **What is the difference between StatelessWidget and StatefulWidget?**  
-   → StatelessWidget has no mutable state (immutable). StatefulWidget holds a `State` object that can change and trigger rebuilds via `setState()`.
-
-2. **How does Provider work?**  
-   → `ChangeNotifierProvider` wraps the widget tree and injects `CartProvider`. `Consumer<CartProvider>` rebuilds when `notifyListeners()` is called.
-
-3. **What is the difference between Future and Stream?**  
-   → `Future<T>` delivers **one** value asynchronously. `Stream<T>` delivers **multiple** values over time — ideal for real-time updates.
-
-4. **Why use FutureBuilder?**  
-   → `FutureBuilder` automatically handles the three states of an async operation: `waiting` (loading), `done` (data), and `error` — cleanly mapping them to UI states.
-
-5. **Why is the app Firebase-ready?**  
-   → All data access goes through a service layer. Models use `fromMap()`/`toMap()` matching Firestore structure. Auth logic is isolated in one method. Swapping the data source requires minimal code changes.
+This project is for academic purposes. All rights reserved © 2026.
